@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <title>Title</title>
+</head>
+<body>
+    <div class="global-container">
+        <div class="content-container">
+            <h1 class="header">Finance App</h1>
+
+            <table>
+                <tr class="table-header">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Biggest price in the last year</th>
+                    <th>Biggest price in the last month</th>
+                </tr>
+                <tr class="table-row">
+                    <td> {{Name.0}} </td>
+                    <td> {{Price.0}} </td>
+                    <td> {{Price_in_Year.0}} </td>
+                    <td> {{Price_in_Month.0}} </td>
+                </tr>
+                <tr class="table-row">
+                    <td> {{Name.1}} </td>
+                    <td> {{Price.1}} </td>
+                    <td> {{Price_in_Year.1}} </td>
+                    <td> {{Price_in_Month.1}} </td>
+                <tr class="table-row">
+                    <td> {{Name.2}} </td>
+                    <td> {{Price.2}} </td>
+                    <td> {{Price_in_Year.2}} </td>
+                    <td> {{Price_in_Month.2}} </td>
+                <tr class="table-row">
+                    <td> {{Name.3}} </td>
+                    <td> {{Price.3}} </td>
+                    <td> {{Price_in_Year.3}} </td>
+                    <td> {{Price_in_Month.3}} </td>
+                <tr class="table-row">
+                    <td> {{Name.4}} </td>
+                    <td> {{Price.4}} </td>
+                    <td> {{Price_in_Year.4}} </td>
+                    <td> {{Price_in_Month.4}} </td>
+                <tr class="table-row">
+                    <td> {{Name.5}} </td>
+                    <td> {{Price.5}} </td>
+                    <td> {{Price_in_Year.5}} </td>
+                    <td> {{Price_in_Month.5}} </td>
+                <tr class="table-row">
+                    <td> {{Name.6}} </td>
+                    <td> {{Price.6}} </td>
+                    <td> {{Price_in_Year.6}} </td>
+                    <td> {{Price_in_Month.6}} </td>
+                <tr class="table-row">
+                    <td> {{Name.7}} </td>
+                    <td> {{Price.7}} </td>
+                    <td> {{Price_in_Year.7}} </td>
+                    <td> {{Price_in_Month.7}} </td>
+                <tr class="table-row">
+                    <td> {{Name.8}} </td>
+                    <td> {{Price.8}} </td>
+                    <td> {{Price_in_Year.8}} </td>
+                    <td> {{Price_in_Month.8}} </td>
+                <tr class="table-row">
+                    <td> {{Name.9}} </td>
+                    <td> {{Price.9}} </td>
+                    <td> {{Price_in_Year.9}} </td>
+                    <td> {{Price_in_Month.9}} </td>
+                <tr class="table-row">
+                    <td> {{Name.10}} </td>
+                    <td> {{Price.10}} </td>
+                    <td> {{Price_in_Year.10}} </td>
+                    <td> {{Price_in_Month.10}} </td>
+                </tr>
+            </table>
+
+            <form>
+                <input type="text" placeholder="ну типо что-то">
+                <input type="submit" value="Save">
+            </form>
+
+            <table>
+                <tr class="table-header">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Biggest price in the last year</th>
+                    <th>Biggest price in the last month</th>
+                </tr>
+                <tr class="table-row">
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr class="table-row">
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+
+<!--                вот сюда новые строки-->
+
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
