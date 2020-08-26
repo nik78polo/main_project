@@ -1,7 +1,9 @@
 from django.shortcuts import render
 import yfinance as yf
+from django.http import HttpRequest
 
-
+tsla =  yf.Ticker("TSLA")
+print(tsla.info)
 # -------------Company to static table-------------
 # 1:Tesla (TSLA)
 # 2:Marriott International (MAR)
@@ -69,3 +71,5 @@ def index(request):
     return render(request, "index.html", context=data)
 
 
+def testf(request):
+    return HttpRequest("test")
