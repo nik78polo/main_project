@@ -25,23 +25,23 @@
                     <th>Biggest price in the last month</th>
                 </tr>
                 <tr class="table-row">
-                    <td> {{Name.0}} </td>
+                    <td> {{Name.0}}<img class="test" src="{{Images.0}}"/> </td>
                     <td> {{Price.0}} </td>
                     <td> {{Price_in_Year.0}} </td>
                     <td> {{Price_in_Month.0}} </td>
                 </tr>
                 <tr class="table-row">
-                    <td> {{Name.1}} </td>
+                    <td> {{Name.1}} <img class="test" src="{{Images.1}}"/></td>
                     <td> {{Price.1}} </td>
                     <td> {{Price_in_Year.1}} </td>
                     <td> {{Price_in_Month.1}} </td>
                 <tr class="table-row">
-                    <td> {{Name.2}} </td>
+                    <td> {{Name.2}} <img class="test" src="{{Images.2}}"/></td>
                     <td> {{Price.2}} </td>
                     <td> {{Price_in_Year.2}} </td>
                     <td> {{Price_in_Month.2}} </td>
                 <tr class="table-row">
-                    <td> {{Name.3}} </td>
+                    <td> {{Name.3}} <img class="test" src="{{Images.3}}"/> </td>
                     <td> {{Price.3}} </td>
                     <td> {{Price_in_Year.3}} </td>
                     <td> {{Price_in_Month.3}} </td>
@@ -51,69 +51,99 @@
                     <td> {{Price_in_Year.4}} </td>
                     <td> {{Price_in_Month.4}} </td>
                 <tr class="table-row">
-                    <td> {{Name.5}} </td>
+                    <td> {{Name.5}} <img class="test" src="{{Images.4}}"/></td>
                     <td> {{Price.5}} </td>
                     <td> {{Price_in_Year.5}} </td>
                     <td> {{Price_in_Month.5}} </td>
                 <tr class="table-row">
-                    <td> {{Name.6}} </td>
+                    <td> {{Name.6}} <img class="test" src="{{Images.5}}"/> </td>
                     <td> {{Price.6}} </td>
                     <td> {{Price_in_Year.6}} </td>
                     <td> {{Price_in_Month.6}} </td>
                 <tr class="table-row">
-                    <td> {{Name.7}} </td>
+                    <td> {{Name.7}} <img class="test" src="{{Images.6}}"/></td>
                     <td> {{Price.7}} </td>
                     <td> {{Price_in_Year.7}} </td>
                     <td> {{Price_in_Month.7}} </td>
                 <tr class="table-row">
-                    <td> {{Name.8}} </td>
+                    <td> {{Name.8}} <img class="test" src="{{Images.7}}"/></td>
                     <td> {{Price.8}} </td>
                     <td> {{Price_in_Year.8}} </td>
                     <td> {{Price_in_Month.8}} </td>
                 <tr class="table-row">
-                    <td> {{Name.9}} </td>
+                    <td> {{Name.9}} <img class="test" src="{{Images.8}}"/></td>
                     <td> {{Price.9}} </td>
                     <td> {{Price_in_Year.9}} </td>
                     <td> {{Price_in_Month.9}} </td>
                 <tr class="table-row">
-                    <td> {{Name.10}} </td>
+                    <td> {{Name.10}} <img class="test" src="{{Images.9}}"/></td>
                     <td> {{Price.10}} </td>
                     <td> {{Price_in_Year.10}} </td>
                     <td> {{Price_in_Month.10}} </td>
                 </tr>
             </table>
 
-            <form action="test">
-                <input type="text" placeholder="ну типо что-то">
-                <input type="submit" value="Save">
-            </form>
 
-            <table>
+            <div>
+                <input placeholder="Input" id="SOSI" type="text"/> 
+                <button onclick="Test()"> Click</button>
+            </div>
+
+            <table id="Test1">
                 <tr class="table-header">
                     <th>Name</th>
                     <th>Price</th>
                     <th>Biggest price in the last year</th>
                     <th>Biggest price in the last month</th>
                 </tr>
-                <tr class="table-row">
-                    <td> - </td>
-                    <td> - </td>
-                    <td> - </td>
-                    <td> - </td>
-                </tr>
-                <tr class="table-row">
-                    <td> - </td>
-                    <td> - </td>
-                    <td> - </td>
-                    <td> - </td>
-                </tr>
-
-<!--                вот сюда новые строки-->
-
             </table>
         </div>
     </div>
+    <script>
+        function Test()
+        {   
+            var companyId = document.getElementById("SOSI").value;
+            var list = [];
+            var request = new XMLHttpRequest();
+            request.open('GET', 'http://127.0.0.1:8000/api/company/'+companyId);
+            request.onload=()=>{
+                if (request.readyState==4){
+                    list = JSON.parse(request.responseText);
+                    var t1 = document.getElementById('Test1');
+                    for (let i=0; i<list.length; i++){
+                        var l1 = document.createElement('tr');
 
+                        let td = document.createElement('td');
+                        let img = document.createElement('img');
+                        img.className='test';
+                        img.setAttribute('src', list[i].image);
+                        let text = document.createTextNode(list[i].name);
+                        td.appendChild(img);
+                        td.appendChild(text);
+                        l1.appendChild(td);    
+
+                        td = document.createElement('td');
+                        text = document.createTextNode(list[i].price);
+                        td.appendChild(text);
+                        l1.appendChild(td); 
+
+                        td = document.createElement('td');
+                        text = document.createTextNode(list[i].biggest_price_last_year);
+                        td.appendChild(text)
+                        l1.appendChild(td); 
+
+                        td = document.createElement('td');
+                        text = document.createTextNode(list[i].biggest_price_last_month);
+                        td.appendChild(text)
+                        l1.appendChild(td); 
+
+                        t1.appendChild(l1);
+                    }
+                }
+            };
+            request.send();
+        }
+    </script>
 </body>
 
 </html>

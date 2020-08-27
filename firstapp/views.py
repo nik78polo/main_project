@@ -1,9 +1,12 @@
 from django.shortcuts import render
 import yfinance as yf
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
+from datetime import datetime
+import json
 
-tsla =  yf.Ticker("TSLA")
-print(tsla.info)
+# tsla =  yf.Ticker("MAR")
+# print(tsla.info['logo_url'])
+# print(tsla.history(period='1d'))
 # -------------Company to static table-------------
 # 1:Tesla (TSLA)
 # 2:Marriott International (MAR)
@@ -26,6 +29,34 @@ def search_max(arr):
     return max_i
 
 
+second_table = []
+today = datetime.today()
+
+
+class Company:
+
+    def __init__(self, name, price, biggest_price_last_year, biggest_price_last_month, image):
+        self.name = name
+        self.price = price
+        self.biggest_price_last_year = biggest_price_last_year
+        self.biggest_price_last_month = biggest_price_last_month
+        self.image = image
+
+
+def test(request, companyId):
+    companies = []
+    nm = companyId
+    try:
+        companies.append(Company(yf.Ticker(nm).info['longName'], yf.Ticker(nm).history().tail(1)['Close'].iloc[0], 
+        search_max(yf.Ticker(nm).history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker(nm).history(period='1mo').tail(31)['Close']), 
+        yf.Ticker(nm).info['logo_url']).__dict__)
+    except:
+        print("Something wrong!")
+    data = json.dumps(companies)
+    return HttpResponse(data)
+
+
 def index(request):
     name = ["Tesla", "Marriott International", "Apple", "Nice", "SalecForce.com", "Amazon", "Microsoft", "Hyatt", "Starbucks", "American Express", "LVMH"]
     price = [
@@ -42,17 +73,17 @@ def index(request):
             yf.Ticker("MC.PA").history().tail(1)['Close'].iloc[0]
             ]
     biggest_price_last_year = [
-        search_max(yf.Ticker("TSLA").history(period='12mo').tail(366)['Close']), 
-        search_max(yf.Ticker("MAR").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("AAPL").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("NICE").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("CRM").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("AMZN").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("MSFT").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("H").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("SBUX").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("AXP").history(period='12mo').tail(366)['Close']),
-        search_max(yf.Ticker("MC.PA").history(period='12mo').tail(366)['Close']),
+        search_max(yf.Ticker("TSLA").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']), 
+        search_max(yf.Ticker("MAR").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("AAPL").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("NICE").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("CRM").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("AMZN").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("MSFT").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("H").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("SBUX").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("AXP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
+        search_max(yf.Ticker("MC.PA").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close']),
     ]    
     biggest_price_last_month = [
         search_max(yf.Ticker("TSLA").history(period='1mo').tail(31)['Close']), 
@@ -67,9 +98,22 @@ def index(request):
         search_max(yf.Ticker("AXP").history(period='1mo').tail(31)['Close']),
         search_max(yf.Ticker("MC.PA").history(period='1mo').tail(31)['Close']),
     ]   
-    data = {"Name": name, "Price": price, "Price_in_Year": biggest_price_last_year, "Price_in_Month": biggest_price_last_month}
+    images = [
+        yf.Ticker("TSLA").info['logo_url'],
+        yf.Ticker("MAR").info['logo_url'],
+        yf.Ticker("AAPL").info['logo_url'],
+        yf.Ticker("NICE").info['logo_url'],
+        #yf.Ticker("CRM").info['logo_url'], Почему то данные об этой компании не удается получить
+        yf.Ticker("AMZN").info['logo_url'],
+        yf.Ticker("MSFT").info['logo_url'],
+        yf.Ticker("H").info['logo_url'],
+        yf.Ticker("SBUX").info['logo_url'],
+        yf.Ticker("AXP").info['logo_url'],
+        yf.Ticker("MC.PA").info['logo_url'],
+    ]
+    data = {
+    "Name": name, "Price": price, "Price_in_Year": biggest_price_last_year, 
+    "Price_in_Month": biggest_price_last_month, "Images": images}
     return render(request, "index.html", context=data)
 
 
-def testf(request):
-    return HttpRequest("test")

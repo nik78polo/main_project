@@ -7,18 +7,18 @@
 
 .global-container {
     width: 100vw;
-    height: 200vh;
-
     background: rgb(18,194,233);
     background: linear-gradient(90deg, rgba(18,194,233,1) 0%, rgba(196,113,237,1) 50%, rgba(246,79,89,1) 100%);
 }
-
+.test{
+    width: 40px;
+    height: 40px;
+}
 .content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 1024px;
-    height: 150vh;
     padding: 10px 0;
     box-sizing: border-box;
     background: white;
@@ -76,7 +76,7 @@ form input[type="text"] {
 }
 
 form input[type="submit"] {
-    padding: 5px 18px;
+    padding: 6px 18px;
     background: #1ac1e9;
     border: none;
     color: white;

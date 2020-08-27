@@ -18,7 +18,7 @@ from django.urls import path
 from firstapp import views
 
 urlpatterns = [
+    path('api/company/<str:companyId>/', views.test),
     path('', views.index),
-    path('test', views.testf),
     path('admin/', admin.site.urls),
 ]
