@@ -25,58 +25,91 @@
                     <th>Biggest price in the last month</th>
                 </tr>
                 <tr class="table-row">
-                    <td> {{Name.0}}<img class="test" src="{{Images.0}}"/> </td>
+                    <td>
+                        <img class="test" src="{{Images.0}}"/>
+                        <span>{{Name.0}}</span>
+                    </td>
                     <td> {{Price.0}} {{Currency.0}}</td>
                     <td> {{Price_in_Year.0}} {{Currency.0}} </td>
                     <td> {{Price_in_Month.0}} {{Currency.0}} </td>
                 </tr>
                 <tr class="table-row">
-                    <td> {{Name.1}} <img class="test" src="{{Images.1}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.1}}"/>
+                        <span>{{Name.1}}</span>
+                    </td>
                     <td> {{Price.1}} {{Currency.1}} </td>
                     <td> {{Price_in_Year.1}} {{Currency.1}} </td>
                     <td> {{Price_in_Month.1}} {{Currency.1}}</td>
                 <tr class="table-row">
-                    <td> {{Name.2}} <img class="test" src="{{Images.2}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.2}}"/>
+                        <span>{{Name.2}}</span>
+                    </td>
                     <td> {{Price.2}} {{Currency.2}} </td>
                     <td> {{Price_in_Year.2}} {{Currency.2}} </td>
                     <td> {{Price_in_Month.2}} {{Currency.2}} </td>
                 <tr class="table-row">
-                    <td> {{Name.3}} <img class="test" src="{{Images.3}}"/> </td>
+                    <td>
+                        <img class="test" src="{{Images.3}}"/>
+                        <span>{{Name.3}}</span>
+                    </td>
                     <td> {{Price.3}} {{Currency.3}} </td>
                     <td> {{Price_in_Year.3}} {{Currency.3}} </td>
                     <td> {{Price_in_Month.3}} {{Currency.3}} </td>
                 <tr class="table-row">
-                    <td> {{Name.4}} <img class="test" src="https://utmagazine.ru/uploads/content/bbf82a2b075dda11f175b7ce032198e1.png"/> </td>
+                    <td>
+                        <img class="test" src="https://utmagazine.ru/uploads/content/bbf82a2b075dda11f175b7ce032198e1.png"/>
+                        <span>{{Name.4}}</span>
+                    </td>
                     <td> {{Price.4}} {{"USD"}} </td>
                     <td> {{Price_in_Year.4}} {{"USD"}} </td>
                     <td> {{Price_in_Month.4}} {{"USD"}} </td>
                 <tr class="table-row">
-                    <td> {{Name.5}} <img class="test" src="{{Images.4}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.4}}"/>
+                        <span>{{Name.5}}</span>
+                    </td>
                     <td> {{Price.5}} {{Currency.4}} </td>
                     <td> {{Price_in_Year.5}} {{Currency.4}} </td>
                     <td> {{Price_in_Month.5}} {{Currency.4}} </td>
                 <tr class="table-row">
-                    <td> {{Name.6}} <img class="test" src="{{Images.5}}"/> </td>
+                    <td>
+                        <img class="test" src="{{Images.5}}"/>
+                        <span>{{Name.6}}</span>
+                    </td>
                     <td> {{Price.6}} {{Currency.5}} </td>
                     <td> {{Price_in_Year.6}} {{Currency.5}} </td>
                     <td> {{Price_in_Month.6}} {{Currency.5}} </td>
                 <tr class="table-row">
-                    <td> {{Name.7}} <img class="test" src="{{Images.6}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.6}}"/>
+                        <span>{{Name.7}}</span>
+                    </td>
                     <td> {{Price.7}} {{Currency.6}} </td>
                     <td> {{Price_in_Year.7}} {{Currency.6}} </td>
                     <td> {{Price_in_Month.7}} {{Currency.6}} </td>
                 <tr class="table-row">
-                    <td> {{Name.8}} <img class="test" src="{{Images.7}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.7}}"/>
+                        <span>{{Name.8}}</span>
+                    </td>
                     <td> {{Price.8}} {{Currency.7}} </td>
                     <td> {{Price_in_Year.8}} {{Currency.7}} </td>
                     <td> {{Price_in_Month.8}} {{Currency.7}} </td>
                 <tr class="table-row">
-                    <td> {{Name.9}} <img class="test" src="{{Images.8}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.8}}"/>
+                        <span>{{Name.9}}</span>
+                    </td>
                     <td> {{Price.9}} {{Currency.8}} </td>
                     <td> {{Price_in_Year.9}} {{Currency.8}} </td>
                     <td> {{Price_in_Month.9}} {{Currency.8}} </td>
                 <tr class="table-row">
-                    <td> {{Name.10}} <img class="test" src="{{Images.9}}"/></td>
+                    <td>
+                        <img class="test" src="{{Images.9}}"/>
+                        <span>{{Name.10}}</span>
+                    </td>
                     <td> {{Price.10}} {{Currency.9}} </td>
                     <td> {{Price_in_Year.10}} {{Currency.9}} </td>
                     <td> {{Price_in_Month.10}} {{Currency.9}} </td>
@@ -84,10 +117,12 @@
             </table>
 
 
-            <div>
-                <input placeholder="Input company symbol" id="ID" type="text"/> 
+            <div class="form">
+                <input placeholder="Input company symbol" id="ID" type="text"/>
                 <button onclick="Test()"> Click</button>
             </div>
+
+            <div id="loading-indicator"></div>
 
             <table id="Test1">
                 <tr class="table-header">
@@ -101,43 +136,57 @@
     </div>
     <script>
         function Test()
-        {   
+        {
+            const loadingIndicator = document.getElementById('loading-indicator');
             var companyId = document.getElementById("ID").value;
             var list = [];
             var request = new XMLHttpRequest();
             request.open('GET', 'http://127.0.0.1:8000/api/company/'+companyId);
+            loadingIndicator.innerText = "loading...";
             request.onload=()=>{
+                loadingIndicator.innerText = "";
+
                 if (request.readyState==4){
                     list = JSON.parse(request.responseText);
+                    console.log(list);
                     var t1 = document.getElementById('Test1');
                     for (let i=0; i<list.length; i++){
-                        var l1 = document.createElement('tr');
+                        const listItem = list[i];
+                        const name = listItem.name;
+                        const imageSrc= listItem.image;
+                        const currency = listItem.currency;
+                        const price = `${listItem.price} ${currency}`;
+                        const biggestPriceLastYear = `${listItem.biggest_price_last_year} ${currency}`;
+                        const biggestPriceLastMonth = `${listItem.biggest_price_last_month} ${currency}`;
+                        const tableRow = document.createElement('tr');
+                        tableRow.className = "table-row";
 
                         let td = document.createElement('td');
                         let img = document.createElement('img');
                         img.className='test';
-                        img.setAttribute('src', list[i].image);
-                        let text = document.createTextNode(list[i].name);
+                        img.setAttribute('src', imageSrc);
+                        let text = document.createElement('span');
+                        text.innerText = name;
                         td.appendChild(img);
                         td.appendChild(text);
-                        l1.appendChild(td);    
+                        tableRow.appendChild(td);
 
                         td = document.createElement('td');
-                        text = document.createTextNode(list[i].price);
+                        text = document.createTextNode(price);
                         td.appendChild(text);
-                        l1.appendChild(td); 
+                        tableRow.appendChild(td);
 
                         td = document.createElement('td');
-                        text = document.createTextNode(list[i].biggest_price_last_year);
+                        text = document.createTextNode(biggestPriceLastYear);
                         td.appendChild(text)
-                        l1.appendChild(td); 
+                        tableRow.appendChild(td);
 
                         td = document.createElement('td');
-                        text = document.createTextNode(list[i].biggest_price_last_month);
+                        text = document.createTextNode(biggestPriceLastMonth);
                         td.appendChild(text)
-                        l1.appendChild(td); 
+                        tableRow.appendChild(td);
 
-                        t1.appendChild(l1);
+                        t1.appendChild(tableRow);
                     }
                 }
             };
