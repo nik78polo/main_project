@@ -46,6 +46,19 @@ table {
     background: #f4f4f5;
 }
 
+.table-row > td:first-child {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-row > td:first-child > span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 th, td {
     padding: 10px 10px;
     border-right: 1px solid #ccc;
@@ -59,13 +72,13 @@ th:last-child, td:last-child {
     border-right: none;
 }
 
-form {
+.form {
     display: flex;
     width: 60%;
     height: 40px;
 }
 
-form input[type="text"] {
+.form input[type="text"] {
     padding: 5px 5px;
     width: 100%;
     margin-right: 10px;
@@ -75,7 +88,7 @@ form input[type="text"] {
     font-size: 14px;
 }
 
-form input[type="submit"] {
+.form button {
     padding: 6px 18px;
     background: #1ac1e9;
     border: none;
@@ -85,6 +98,11 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
+.form button:hover {
     background: #6aa8ea;
+}
+
+#loading-indicator {
+    margin-top: 18px;
+    font-size: 20px;
 }
