@@ -4,9 +4,6 @@ from django.http import HttpResponse
 from datetime import datetime
 import json
 
-# tsla =  yf.Ticker("MAR")
-# print(tsla.info['logo_url'])
-# print(tsla.history(period='1d'))
 # -------------Company to static table-------------
 # 1:Tesla (TSLA)
 # 2:Marriott International (MAR)
@@ -111,7 +108,6 @@ def index(request):
         yf.Ticker("MAR").info['logo_url'],
         yf.Ticker("AAPL").info['logo_url'],
         yf.Ticker("NICE").info['logo_url'],
-        #yf.Ticker("CRM").info['logo_url'], Почему то данные об этой компании не удается получить
         yf.Ticker("AMZN").info['logo_url'],
         yf.Ticker("MSFT").info['logo_url'],
         yf.Ticker("H").info['logo_url'],

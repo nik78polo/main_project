@@ -46,7 +46,7 @@ table {
     background: #f4f4f5;
 }
 
-.table-row > td:first-child {
+.table-row > td:first-child  {
     display: flex;
     flex-direction: row;
 }
