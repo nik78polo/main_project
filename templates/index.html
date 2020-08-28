@@ -26,66 +26,66 @@
                 </tr>
                 <tr class="table-row">
                     <td> {{Name.0}}<img class="test" src="{{Images.0}}"/> </td>
-                    <td> {{Price.0}} </td>
-                    <td> {{Price_in_Year.0}} </td>
-                    <td> {{Price_in_Month.0}} </td>
+                    <td> {{Price.0}} {{Currency.0}}</td>
+                    <td> {{Price_in_Year.0}} {{Currency.0}} </td>
+                    <td> {{Price_in_Month.0}} {{Currency.0}} </td>
                 </tr>
                 <tr class="table-row">
                     <td> {{Name.1}} <img class="test" src="{{Images.1}}"/></td>
-                    <td> {{Price.1}} </td>
-                    <td> {{Price_in_Year.1}} </td>
-                    <td> {{Price_in_Month.1}} </td>
+                    <td> {{Price.1}} {{Currency.1}} </td>
+                    <td> {{Price_in_Year.1}} {{Currency.1}} </td>
+                    <td> {{Price_in_Month.1}} {{Currency.1}}</td>
                 <tr class="table-row">
                     <td> {{Name.2}} <img class="test" src="{{Images.2}}"/></td>
-                    <td> {{Price.2}} </td>
-                    <td> {{Price_in_Year.2}} </td>
-                    <td> {{Price_in_Month.2}} </td>
+                    <td> {{Price.2}} {{Currency.2}} </td>
+                    <td> {{Price_in_Year.2}} {{Currency.2}} </td>
+                    <td> {{Price_in_Month.2}} {{Currency.2}} </td>
                 <tr class="table-row">
                     <td> {{Name.3}} <img class="test" src="{{Images.3}}"/> </td>
-                    <td> {{Price.3}} </td>
-                    <td> {{Price_in_Year.3}} </td>
-                    <td> {{Price_in_Month.3}} </td>
+                    <td> {{Price.3}} {{Currency.3}} </td>
+                    <td> {{Price_in_Year.3}} {{Currency.3}} </td>
+                    <td> {{Price_in_Month.3}} {{Currency.3}} </td>
                 <tr class="table-row">
-                    <td> {{Name.4}} </td>
-                    <td> {{Price.4}} </td>
-                    <td> {{Price_in_Year.4}} </td>
-                    <td> {{Price_in_Month.4}} </td>
+                    <td> {{Name.4}} <img class="test" src="https://utmagazine.ru/uploads/content/bbf82a2b075dda11f175b7ce032198e1.png"/> </td>
+                    <td> {{Price.4}} {{"USD"}} </td>
+                    <td> {{Price_in_Year.4}} {{"USD"}} </td>
+                    <td> {{Price_in_Month.4}} {{"USD"}} </td>
                 <tr class="table-row">
                     <td> {{Name.5}} <img class="test" src="{{Images.4}}"/></td>
-                    <td> {{Price.5}} </td>
-                    <td> {{Price_in_Year.5}} </td>
-                    <td> {{Price_in_Month.5}} </td>
+                    <td> {{Price.5}} {{Currency.4}} </td>
+                    <td> {{Price_in_Year.5}} {{Currency.4}} </td>
+                    <td> {{Price_in_Month.5}} {{Currency.4}} </td>
                 <tr class="table-row">
                     <td> {{Name.6}} <img class="test" src="{{Images.5}}"/> </td>
-                    <td> {{Price.6}} </td>
-                    <td> {{Price_in_Year.6}} </td>
-                    <td> {{Price_in_Month.6}} </td>
+                    <td> {{Price.6}} {{Currency.5}} </td>
+                    <td> {{Price_in_Year.6}} {{Currency.5}} </td>
+                    <td> {{Price_in_Month.6}} {{Currency.5}} </td>
                 <tr class="table-row">
                     <td> {{Name.7}} <img class="test" src="{{Images.6}}"/></td>
-                    <td> {{Price.7}} </td>
-                    <td> {{Price_in_Year.7}} </td>
-                    <td> {{Price_in_Month.7}} </td>
+                    <td> {{Price.7}} {{Currency.6}} </td>
+                    <td> {{Price_in_Year.7}} {{Currency.6}} </td>
+                    <td> {{Price_in_Month.7}} {{Currency.6}} </td>
                 <tr class="table-row">
                     <td> {{Name.8}} <img class="test" src="{{Images.7}}"/></td>
-                    <td> {{Price.8}} </td>
-                    <td> {{Price_in_Year.8}} </td>
-                    <td> {{Price_in_Month.8}} </td>
+                    <td> {{Price.8}} {{Currency.7}} </td>
+                    <td> {{Price_in_Year.8}} {{Currency.7}} </td>
+                    <td> {{Price_in_Month.8}} {{Currency.7}} </td>
                 <tr class="table-row">
                     <td> {{Name.9}} <img class="test" src="{{Images.8}}"/></td>
-                    <td> {{Price.9}} </td>
-                    <td> {{Price_in_Year.9}} </td>
-                    <td> {{Price_in_Month.9}} </td>
+                    <td> {{Price.9}} {{Currency.8}} </td>
+                    <td> {{Price_in_Year.9}} {{Currency.8}} </td>
+                    <td> {{Price_in_Month.9}} {{Currency.8}} </td>
                 <tr class="table-row">
                     <td> {{Name.10}} <img class="test" src="{{Images.9}}"/></td>
-                    <td> {{Price.10}} </td>
-                    <td> {{Price_in_Year.10}} </td>
-                    <td> {{Price_in_Month.10}} </td>
+                    <td> {{Price.10}} {{Currency.9}} </td>
+                    <td> {{Price_in_Year.10}} {{Currency.9}} </td>
+                    <td> {{Price_in_Month.10}} {{Currency.9}} </td>
                 </tr>
             </table>
 
 
             <div>
-                <input placeholder="Input" id="SOSI" type="text"/> 
+                <input placeholder="Input company symbol" id="ID" type="text"/> 
                 <button onclick="Test()"> Click</button>
             </div>
 
@@ -102,7 +102,7 @@
     <script>
         function Test()
         {   
-            var companyId = document.getElementById("SOSI").value;
+            var companyId = document.getElementById("ID").value;
             var list = [];
             var request = new XMLHttpRequest();
             request.open('GET', 'http://127.0.0.1:8000/api/company/'+companyId);

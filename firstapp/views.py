@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import yfinance as yf
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpResponse
 from datetime import datetime
 import json
 
@@ -58,7 +58,7 @@ def test(request, companyId):
 
 
 def index(request):
-    name = ["Tesla", "Marriott International", "Apple", "Nice", "SalecForce.com", "Amazon", "Microsoft", "Hyatt", "Starbucks", "American Express", "LVMH"]
+    name = ["Tesla", "Marriott International", "Apple", "Nice", "SalesForce.com", "Amazon", "Microsoft", "Hyatt", "Starbucks", "American Express", "LVMH"]
     price = [
             yf.Ticker("TSLA").history().tail(1)['Close'].iloc[0],
             yf.Ticker("MAR").history().tail(1)['Close'].iloc[0],
@@ -111,9 +111,22 @@ def index(request):
         yf.Ticker("AXP").info['logo_url'],
         yf.Ticker("MC.PA").info['logo_url'],
     ]
+    currency = [
+        yf.Ticker("TSLA").info['currency'],
+        yf.Ticker("MAR").info['currency'],
+        yf.Ticker("AAPL").info['currency'],
+        yf.Ticker("NICE").info['currency'],
+        yf.Ticker("AMZN").info['currency'],
+        yf.Ticker("MSFT").info['currency'],
+        yf.Ticker("H").info['currency'],
+        yf.Ticker("SBUX").info['currency'],
+        yf.Ticker("AXP").info['currency'],
+        yf.Ticker("MC.PA").info['currency'],
+
+    ]
     data = {
     "Name": name, "Price": price, "Price_in_Year": biggest_price_last_year, 
-    "Price_in_Month": biggest_price_last_month, "Images": images}
+    "Price_in_Month": biggest_price_last_month, "Images": images, "Currency":currency}
     return render(request, "index.html", context=data)
 
 
