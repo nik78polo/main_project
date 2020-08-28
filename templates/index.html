@@ -9,6 +9,7 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/index.css" %}">
     <title>Title</title>
 </head>
@@ -35,7 +36,14 @@
                     <td> {{Price_in_Year.0}} {{Currency.0}} </td>
                     <td> {{Price_in_Month.0}} {{Currency.0}} </td>
                     <td> {{BookValue.0}} </td>
-                    <td> {{Difference.0}} </td>
+                    <td>
+                        {% if Difference.0 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.0}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -46,7 +54,14 @@
                     <td> {{Price_in_Year.1}} {{Currency.1}} </td>
                     <td> {{Price_in_Month.1}} {{Currency.1}}</td>
                     <td> {{BookValue.1}}  </td>
-                    <td> {{Difference.1}} </td>
+                    <td>
+                        {% if Difference.1 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.1}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -57,7 +72,14 @@
                     <td> {{Price_in_Year.2}} {{Currency.2}} </td>
                     <td> {{Price_in_Month.2}} {{Currency.2}} </td>
                     <td> {{BookValue.2}} </td>
-                    <td> {{Difference.2}} </td>
+                    <td>
+                        {% if Difference.2 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.2}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -68,7 +90,14 @@
                     <td> {{Price_in_Year.3}} {{Currency.3}} </td>
                     <td> {{Price_in_Month.3}} {{Currency.3}} </td>
                     <td> {{BookValue.3}} </td>
-                    <td> {{Difference.3}} </td>
+                    <td>
+                        {% if Difference.3 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.3}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -79,7 +108,14 @@
                     <td> {{Price_in_Year.4}} {{"USD"}} </td>
                     <td> {{Price_in_Month.4}} {{"USD"}} </td>
                     <td> {{" --   "}} </td>
-                    <td> {{Difference.4}} </td>
+                    <td>
+                        {% if Difference.4 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.4}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -90,7 +126,14 @@
                     <td> {{Price_in_Year.5}} {{Currency.4}} </td>
                     <td> {{Price_in_Month.5}} {{Currency.4}} </td>
                     <td> {{BookValue.4}} </td>
-                    <td> {{Difference.5}} </td>
+                    <td>
+                        {% if Difference.5 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.5}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -101,7 +144,14 @@
                     <td> {{Price_in_Year.6}} {{Currency.5}} </td>
                     <td> {{Price_in_Month.6}} {{Currency.5}} </td>
                     <td> {{BookValue.5}} </td>
-                    <td> {{Difference.6}} </td>
+                    <td>
+                        {% if Difference.6 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.6}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -112,7 +162,14 @@
                     <td> {{Price_in_Year.7}} {{Currency.6}} </td>
                     <td> {{Price_in_Month.7}} {{Currency.6}} </td>
                     <td> {{BookValue.6}} </td>
-                    <td> {{Difference.7}} </td>
+                    <td>
+                        {% if Difference.7 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.7}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -123,7 +180,14 @@
                     <td> {{Price_in_Year.8}} {{Currency.7}} </td>
                     <td> {{Price_in_Month.8}} {{Currency.7}} </td>
                     <td> {{BookValue.7}} </td>
-                    <td> {{Difference.8}} </td>
+                    <td>
+                        {% if Difference.8 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.8}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -134,7 +198,14 @@
                     <td> {{Price_in_Year.9}} {{Currency.8}} </td>
                     <td> {{Price_in_Month.9}} {{Currency.8}} </td>
                     <td> {{BookValue.8}} </td>
-                    <td> {{Difference.9}} </td>
+                    <td>
+                        {% if Difference.9 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.9}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -145,7 +216,14 @@
                     <td> {{Price_in_Year.10}} {{Currency.9}} </td>
                     <td> {{Price_in_Month.10}} {{Currency.9}} </td>
                     <td> {{BookValue.9}} </td>
-                    <td> {{Difference.10}} </td>
+                    <td>
+                        {% if Difference.10 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.10}}
+                    </td>
                 </tr>
                 <tr class="table-row">
                     <td>
@@ -156,7 +234,14 @@
                     <td> {{Price_in_Year.11}} {{Currency.10}} </td>
                     <td> {{Price_in_Month.11}} {{Currency.10}} </td>
                     <td> {{BookValue.10}} </td>
-                    <td> {{Difference.11}} </td>
+                    <td>
+                        {% if Difference.11 < 0 %}
+                            <span class="material-icons trending-down">trending_down</span>
+                        {% else %}
+                            <span class="material-icons trending-up">trending_up</span>
+                        {% endif %}
+                        {{Difference.11}}
+                    </td>
                 </tr>
             </table>
 
@@ -181,63 +266,104 @@
         </div>
     </div>
     <script>
-        function Test()
-        {
-            const loadingIndicator = document.getElementById('loading-indicator');
-            var companyId = document.getElementById("ID").value;
-            var list = [];
-            var request = new XMLHttpRequest();
-            request.open('GET', 'http://127.0.0.1:8000/api/company/'+companyId);
-            loadingIndicator.innerText = "loading...";
-            request.onload=()=>{
-                loadingIndicator.innerText = "";
+      async function Test() {
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const companyId = document.getElementById("ID").value;
 
-                if (request.readyState==4){
-                    list = JSON.parse(request.responseText);
-                    console.log(list);
-                    var t1 = document.getElementById('Test1');
-                    for (let i=0; i<list.length; i++){
-                        const listItem = list[i];
-                        const name = listItem.name;
-                        const imageSrc= listItem.image;
-                        const currency = listItem.currency;
-                        const price = `${listItem.price} ${currency}`;
-                        const biggestPriceLastYear = `${listItem.biggest_price_last_year} ${currency}`;
-                        const biggestPriceLastMonth = `${listItem.biggest_price_last_month} ${currency}`;
-                        const tableRow = document.createElement('tr');
-                        tableRow.className = "table-row";
+        try {
+          const table = document.getElementById('Test1');
 
-                        let td = document.createElement('td');
-                        let img = document.createElement('img');
-                        img.className='test';
-                        img.setAttribute('src', imageSrc);
-                        let text = document.createElement('span');
-                        text.innerText = name;
-                        td.appendChild(img);
-                        td.appendChild(text);
-                        tableRow.appendChild(td);
+          loadingIndicator.innerText = "loading...";
+          const list = await getCompanyInfo(companyId);
+          console.log(list);
 
-                        td = document.createElement('td');
-                        text = document.createTextNode(price);
-                        td.appendChild(text);
-                        tableRow.appendChild(td);
-
-                        td = document.createElement('td');
-                        text = document.createTextNode(biggestPriceLastYear);
-                        td.appendChild(text)
-                        tableRow.appendChild(td);
-
-                        td = document.createElement('td');
-                        text = document.createTextNode(biggestPriceLastMonth);
-                        td.appendChild(text)
-                        tableRow.appendChild(td);
-
-                        t1.appendChild(tableRow);
-                    }
-                }
-            };
-            request.send();
+          list.forEach(listItem => {
+            table.appendChild(makeRow(listItem));
+          });
+        } catch (error) {
+          console.log(error);
         }
+
+        loadingIndicator.innerText = "";
+      }
+
+      async function getCompanyInfo(companyId) {
+        const url = 'http://127.0.0.1:8000/api/company/'+companyId;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        return await response.json();
+      }
+
+      function makeRow(listItem) {
+        const name = listItem.name;
+        const logoSrc= listItem.image;
+        const currency = listItem.currency;
+        const price = `${listItem.price} ${currency}`;
+        const biggestPriceLastYear = `${listItem.biggest_price_last_year} ${currency}`;
+        const biggestPriceLastMonth = `${listItem.biggest_price_last_month} ${currency}`;
+        const bookValue = listItem.book_value;
+        const difference = listItem.difference;
+
+        const tableRow = document.createElement('tr');
+        tableRow.className = "table-row";
+
+        tableRow.appendChild(makeNameColumnCell(name, logoSrc));
+        tableRow.appendChild(makePriceColumnCell(price));
+        tableRow.appendChild(makePriceColumnCell(biggestPriceLastYear));
+        tableRow.appendChild(makePriceColumnCell(biggestPriceLastMonth));
+        tableRow.appendChild(makePriceColumnCell(bookValue));
+        tableRow.appendChild(makeDifferenceCell(difference));
+
+        return tableRow;
+      }
+
+      function makeNameColumnCell(name, logoSrc) {
+        const tableCell = document.createElement('td');
+        const img = document.createElement('img');
+        const text = document.createElement('span');
+
+        img.className='test';
+        img.setAttribute('src', logoSrc);
+        text.innerText = name;
+        tableCell.appendChild(img);
+        tableCell.appendChild(text);
+
+        return tableCell;
+      }
+
+      function makePriceColumnCell(price) {
+        const tableCell = document.createElement('td');
+        const text = document.createTextNode(price);
+        tableCell.appendChild(text);
+
+        return tableCell
+      }
+
+      function makeDifferenceCell(difference) {
+        let cell = makePriceColumnCell(difference);
+        cell.prepend(getTrendingArrow(difference));
+        return cell;
+      }
+
+      function getTrendingArrow(value) {
+        //<span class="material-icons trending-down">trending_down</span>
+        const span = document.createElement('span');
+        span.className = 'material-icons';
+
+        if (value > 0) {
+          span.classList.add('trending-up');
+          span.innerText = 'trending_up';
+        } else {
+          span.classList.add('trending-down');
+          span.innerText = 'trending_down';
+        }
+
+        return span;
+      }
     </script>
 </body>
 

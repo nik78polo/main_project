@@ -156,17 +156,17 @@ def index(request):
     ]
     difference = [
         round((yf.Ticker("TSLA").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("TSLA").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
-        (yf.Ticker("MAR").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MAR").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("AAPL").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AAPL").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("NICE").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("NICE").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("CRM").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("CRM").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("AMZN").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AMZN").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("MSFT").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MSFT").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("H").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("H").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("SBUX").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("SBUX").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("AXP").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AXP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("MC.PA").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MC.PA").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
-        (yf.Ticker("TRIP").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("TRIP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),
+        round((yf.Ticker("MAR").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MAR").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("AAPL").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AAPL").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("NICE").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("NICE").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("CRM").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("CRM").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("AMZN").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AMZN").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("MSFT").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MSFT").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("H").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("H").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("SBUX").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("SBUX").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("AXP").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("AXP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("MC.PA").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("MC.PA").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
+        round((yf.Ticker("TRIP").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("TRIP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
 
     ]
     data = {
