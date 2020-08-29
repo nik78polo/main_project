@@ -5,7 +5,7 @@ from datetime import datetime
 import json
 
 # tsla = yf.Ticker("TSLA")
-# print(tsla.info)
+# print(tsla.info['dividendRate'])
 # print(tsla.info['bookValue'])
 # print(tsla.history(period='1d'))
 # -------------Company to static table-------------
@@ -20,7 +20,8 @@ import json
 # 9:Hyatt (H)
 # 10:Microsoft (MSFT)
 # 11:Amazon (AMZN)
-#json 
+#json
+
 
 def search_max(arr):
     max_i = arr[0]
@@ -169,8 +170,24 @@ def index(request):
         round((yf.Ticker("TRIP").history().tail(1)['Close'].iloc[0]) - (search_max(yf.Ticker("TRIP").history(start=str(today.year-1)+ "-01-01", end=str(today.year-1)+ "-12-31").tail(366)['Close'])),2),
 
     ]
+
+    dividends = [
+        yf.Ticker("TSLA").info['dividendRate'],
+        yf.Ticker("MAR").info['dividendRate'],
+        yf.Ticker("AAPL").info['dividendRate'],
+        yf.Ticker("NICE").info['dividendRate'],
+        yf.Ticker("AMZN").info['dividendRate'],
+        yf.Ticker("MSFT").info['dividendRate'],
+        yf.Ticker("H").info['dividendRate'],
+        yf.Ticker("SBUX").info['dividendRate'],
+        yf.Ticker("AXP").info['dividendRate'],
+        yf.Ticker("MC.PA").info['dividendRate'],
+        yf.Ticker("TRIP").info['dividendRate'],
+    ]
+
     data = {
     "Name": name, "Price": price, "Price_in_Year": biggest_price_last_year,
-    "Price_in_Month": biggest_price_last_month, "Images": images, "Currency":currency, "BookValue": book_value, "Difference": difference}
+    "Price_in_Month": biggest_price_last_month, "Images": images, "Currency":currency, "BookValue": book_value, 
+    "Difference": difference, "Dividends": dividends}
     return render(request, "index.html", context=data)
 
